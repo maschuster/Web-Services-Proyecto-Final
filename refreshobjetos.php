@@ -15,6 +15,7 @@ while($row = mysqli_fetch_array($result))
 	$id=$row['idObjeto'];
 	$nombre=$row['nombre'];
 	$precio=$row['precio'];
+	$idEvento=$row[]
 	
 	$objeto = array('idObjeto'=> $id, 'nombre'=> $nombre, 'precio'=> $precio);
 	
