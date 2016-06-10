@@ -15,9 +15,14 @@ while($row = mysqli_fetch_array($result))
 	$id=$row['idObjeto'];
 	$nombre=$row['nombre'];
 	$precio=$row['precio'];
-	$idEvento=$row[]
+	$idEvento=$row['idEvento'];
+	$idUsuario=$row['idUsuario'];
+	$estado=$row['estado'];
 	
-	$objeto = array('idObjeto'=> $id, 'nombre'=> $nombre, 'precio'=> $precio);
+	//va estado o no??
+	
+	
+	$objeto = array('idObjeto'=> $id, 'nombre'=> $nombre, 'precio'=> $precio,'idEvento'=> $idEvento, 'idUsuario'=> $idUsuario, 'estado'=> $estado );
 	
     $objetos[] = $objeto;
 	

@@ -6,13 +6,15 @@ if (mysqli_connect_errno()) {
 
 $string = file_get_contents('php://input'); 
 $objeto = json_decode($string, true);
-$query = "INSERT INTO objetos (nombre,precio,idEvento) values (?, ?, ?)";
+$query = "INSERT INTO objetos (nombre,precio,idEvento, idUsuario) values (?, ?, ?, ?)";
 $stmt = $con->prepare($query);
 $stmt->bind_param(
-	'sss',
+	'ssss',
 	$objeto["nombre"],
 	$objeto["precio"],
-	$objeto["idEvento"]
+	$objeto["idEvento"],
+	$objeto["idUsuario"]
+	
 );
 $stmt->execute();
 $res = $stmt->get_result();

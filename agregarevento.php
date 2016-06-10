@@ -14,6 +14,7 @@ $stmt->bind_param(
 	$evento["fecha"],
 	$evento["lugar"],
 	$evento["descripcion"]
+	
 );
 $stmt->execute();
 $res = $stmt->get_result();
