@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-06-2016 a las 14:36:41
+-- Tiempo de generación: 10-06-2016 a las 15:34:12
 -- Versión del servidor: 5.6.17
 -- Versión de PHP: 5.5.12
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `eventos` (
   `idEvento` int(11) NOT NULL AUTO_INCREMENT,
+  `idAdmin` int(11) NOT NULL,
   `nombre` varchar(45) DEFAULT NULL,
   `fecha` datetime DEFAULT NULL,
   `lugar` varchar(45) DEFAULT NULL,
@@ -40,14 +41,26 @@ CREATE TABLE IF NOT EXISTS `eventos` (
 -- Volcado de datos para la tabla `eventos`
 --
 
-INSERT INTO `eventos` (`idEvento`, `nombre`, `fecha`, `lugar`, `descripcion`, `foto`) VALUES
-(1, 'Fiestita', '2016-05-29 00:00:00', 'Yatay 240', 'ESTO SE VA A DESCONTROLAAAAR', 'Amigos.jpg'),
-(2, 'Asado', '2016-06-15 00:00:00', 'Medrano 232', 'La entrada al campo sale $45', 'Macabi.jpg'),
-(14, 'ASDASD', '2016-04-27 00:00:00', 'ASDASD', 'ASDASD', NULL),
-(15, 'ASDAS', '2016-04-27 00:00:00', 'DASDASD', 'ASDASD', NULL),
-(16, 'ASDAS', '2016-04-27 00:00:00', 'DASDASD', 'ASDASD', NULL),
-(17, 'ASDAS', '2016-04-27 00:00:00', 'DASDASD', 'ASDASD', NULL),
-(18, ')";;', '2016-04-27 00:00:00', 'DASDASD', 'ASDASD', NULL);
+INSERT INTO `eventos` (`idEvento`, `idAdmin`, `nombre`, `fecha`, `lugar`, `descripcion`, `foto`) VALUES
+(1, 0, 'Fiestita', '2016-05-29 00:00:00', 'Yatay 240', 'ESTO SE VA A DESCONTROLAAAAR', 'Amigos.jpg'),
+(2, 0, 'Asado', '2016-06-15 00:00:00', 'Medrano 232', 'La entrada al campo sale $45', 'Macabi.jpg'),
+(14, 0, 'ASDASD', '2016-04-27 00:00:00', 'ASDASD', 'ASDASD', NULL),
+(15, 0, 'ASDAS', '2016-04-27 00:00:00', 'DASDASD', 'ASDASD', NULL),
+(16, 0, 'ASDAS', '2016-04-27 00:00:00', 'DASDASD', 'ASDASD', NULL),
+(17, 0, 'ASDAS', '2016-04-27 00:00:00', 'DASDASD', 'ASDASD', NULL),
+(18, 0, ')";;', '2016-04-27 00:00:00', 'DASDASD', 'ASDASD', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `eventos_usuarios`
+--
+
+CREATE TABLE IF NOT EXISTS `eventos_usuarios` (
+  `idPersona` int(11) NOT NULL,
+  `idUsuario` int(11) NOT NULL,
+  PRIMARY KEY (`idPersona`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -82,20 +95,18 @@ INSERT INTO `objetos` (`idObjeto`, `nombre`, `precio`, `estado`, `idEvento`, `id
 
 CREATE TABLE IF NOT EXISTS `personas` (
   `idPersonas` int(11) NOT NULL AUTO_INCREMENT,
-  `Nombre` varchar(45) DEFAULT NULL,
-  `Apellido` varchar(45) DEFAULT NULL,
-  `Fecha de Nacimiento` datetime DEFAULT NULL,
-  `Mail` varchar(45) DEFAULT NULL,
+  `idEvento` int(11) NOT NULL,
+  `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idPersonas`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuario`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
-CREATE TABLE IF NOT EXISTS `usuario` (
+CREATE TABLE IF NOT EXISTS `usuarios` (
   `idUsuario` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(20) NOT NULL,
   `password` varchar(45) DEFAULT NULL,
