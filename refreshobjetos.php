@@ -7,8 +7,8 @@ $con=mysqli_connect($_GLOBALS["MYSQL_HOSTNAME"], $_GLOBALS["MYSQL_USERNAME"], $_
 if (mysqli_connect_errno()) {
    echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
-   
-$query = 'SELECT * FROM objetos';
+$idEventoGET = $GET_['idEvento']
+$query = 'SELECT * FROM objetos WHERE idEvento =' $idEventoGET;
 $result = mysqli_query($con, $query);
 
 $objetos = array();
