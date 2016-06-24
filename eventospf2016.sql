@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-06-2016 a las 15:34:12
+-- Tiempo de generación: 24-06-2016 a las 17:02:10
 -- Versión del servidor: 5.6.17
 -- Versión de PHP: 5.5.12
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de datos: `mydb`
+-- Base de datos: `eventospf2016`
 --
 
 -- --------------------------------------------------------
@@ -26,6 +26,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `eventos`
 --
 
+DROP TABLE IF EXISTS `eventos`;
 CREATE TABLE IF NOT EXISTS `eventos` (
   `idEvento` int(11) NOT NULL AUTO_INCREMENT,
   `idAdmin` int(11) NOT NULL,
@@ -56,6 +57,7 @@ INSERT INTO `eventos` (`idEvento`, `idAdmin`, `nombre`, `fecha`, `lugar`, `descr
 -- Estructura de tabla para la tabla `eventos_usuarios`
 --
 
+DROP TABLE IF EXISTS `eventos_usuarios`;
 CREATE TABLE IF NOT EXISTS `eventos_usuarios` (
   `idPersona` int(11) NOT NULL,
   `idUsuario` int(11) NOT NULL,
@@ -68,6 +70,7 @@ CREATE TABLE IF NOT EXISTS `eventos_usuarios` (
 -- Estructura de tabla para la tabla `objetos`
 --
 
+DROP TABLE IF EXISTS `objetos`;
 CREATE TABLE IF NOT EXISTS `objetos` (
   `idObjeto` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
@@ -83,9 +86,9 @@ CREATE TABLE IF NOT EXISTS `objetos` (
 --
 
 INSERT INTO `objetos` (`idObjeto`, `nombre`, `precio`, `estado`, `idEvento`, `idUsuario`) VALUES
-(1, 'Coca-Cola', 25, 0, 0, 0),
-(2, 'Vacio', 70, 0, 0, 0),
-(3, 'Huevos', 20, 0, 0, 0);
+(1, 'Coca-Cola', 25, 0, 1, 0),
+(2, 'Vacio', 70, 0, 1, 0),
+(3, 'Huevos', 20, 0, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -93,11 +96,12 @@ INSERT INTO `objetos` (`idObjeto`, `nombre`, `precio`, `estado`, `idEvento`, `id
 -- Estructura de tabla para la tabla `personas`
 --
 
+DROP TABLE IF EXISTS `personas`;
 CREATE TABLE IF NOT EXISTS `personas` (
-  `idPersonas` int(11) NOT NULL AUTO_INCREMENT,
+  `idPersona` int(11) NOT NULL AUTO_INCREMENT,
   `idEvento` int(11) NOT NULL,
   `nombre` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idPersonas`)
+  PRIMARY KEY (`idPersona`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -106,6 +110,7 @@ CREATE TABLE IF NOT EXISTS `personas` (
 -- Estructura de tabla para la tabla `usuarios`
 --
 
+DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `idUsuario` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(20) NOT NULL,
