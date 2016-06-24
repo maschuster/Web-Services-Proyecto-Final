@@ -1,6 +1,8 @@
 <?php
-//conexion a la base de datos
-$con=mysqli_connect("localhost","root","","mydb");
+
+require_once("conexion.php");
+
+$con=mysqli_connect($_GLOBALS["MYSQL_HOSTNAME"], $_GLOBALS["MYSQL_USERNAME"], $_GLOBALS["MYSQL_PASSWORD"], $_GLOBALS["MYSQL_DATABASE"]);
 
 if (mysqli_connect_errno()) {
    echo "Failed to connect to MySQL: " . mysqli_connect_error();

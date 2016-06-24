@@ -1,0 +1,16 @@
+<?php
+
+if (getenv("MYSQL_HOSTNAME") === false) {
+	$_GLOBALS["MYSQL_HOSTNAME"] = "localhost";
+	$_GLOBALS["MYSQL_USERNAME"] = "root";
+	$_GLOBALS["MYSQL_PASSWORD"] = "";
+	$_GLOBALS["MYSQL_DATABASE"] = "eventospf2016";
+}
+else {
+	$_GLOBALS["MYSQL_HOSTNAME"] = getenv("MYSQL_HOSTNAME");
+	$_GLOBALS["MYSQL_USERNAME"] = getenv("MYSQL_USERNAME");
+	$_GLOBALS["MYSQL_PASSWORD"] = getenv("MYSQL_PASSWORD");
+	$_GLOBALS["MYSQL_DATABASE"] = getenv("MYSQL_DATABASE");
+}
+
+?>
