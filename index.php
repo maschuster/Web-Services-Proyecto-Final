@@ -1,3 +1,3 @@
 <?php
-echo "OK!"
+var_dump($_ENV);
 ?>
