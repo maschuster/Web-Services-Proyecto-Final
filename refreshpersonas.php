@@ -8,7 +8,7 @@ if (mysqli_connect_errno()) {
    echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 //$idEventoGET = $_GET['idEvento'];
-$query = 'SELECT * FROM personas';
+$query = 'SELECT * FROM eventospf2016.personas';
 $result = mysqli_query($con, $query);
 
 $personas = array();
