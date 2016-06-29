@@ -8,18 +8,17 @@ if (mysqli_connect_errno()) {
    echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 $idEventoGET = $_GET['idEvento'];
-$query = 'SELECT * FROM personas WHERE idEvento =' . $idEventoGET;
+$query = 'SELECT * FROM eventospf2016.personas WHERE idEvento =' . $idEventoGET;
 $result = mysqli_query($con, $query);
 
 $personas = array();
 while($row = mysqli_fetch_array($result)) 
 { 
-	$nombre=$row['nombre'];
-	$idEvento=$row['idEvento'];
 	$idPersona=$row['idPersona'];
+	$idEvento=$row['idEvento'];
+	$nombre=$row['nombre'];
 	
-	
-	$persona = array('nombre'=> $nombre,'idEvento'=> $idEvento, 'idPersona'=> $idPersona);
+	$persona = array('idPersona'=> $idPersona,'idEvento'=> $idEvento,'nombre'=> $nombre);
 	
     $personas[] = $persona;
 }

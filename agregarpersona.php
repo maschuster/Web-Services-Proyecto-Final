@@ -16,8 +16,6 @@ $stmt->bind_param(
 	'ss',
 	$persona["idEvento"],
 	$persona["nombre"]
-	echo $persona["nombre"];
-	echo $persona["idEvento"];
 );
 $stmt->execute();
 $res = $stmt->get_result();
