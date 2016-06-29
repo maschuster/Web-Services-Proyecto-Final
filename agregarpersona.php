@@ -10,13 +10,12 @@ if (mysqli_connect_errno()) {
 
 $string = file_get_contents('php://input'); 
 $persona = json_decode($string, true);
-$query = "INSERT INTO personas (idEvento, nombre) values (?, ?)";
+$query = "INSERT INTO personas (nombre, idEvento) values (?, ?)";
 $stmt = $con->prepare($query);
 $stmt->bind_param(
 	'ss',
-	$persona["idEvento"],
-	$persona["nombre"]
-	
+	$persona["nombre"],
+	$persona["idEvento"]
 );
 $stmt->execute();
 $res = $stmt->get_result();
