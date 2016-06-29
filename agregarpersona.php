@@ -9,13 +9,13 @@ if (mysqli_connect_errno()) {
 }
 
 $string = file_get_contents('php://input'); 
-$objeto = json_decode($string, true);
+$persona = json_decode($string, true);
 $query = "INSERT INTO personas (idEvento, nombre) values (?, ?)";
 $stmt = $con->prepare($query);
 $stmt->bind_param(
 	'ss',
-	$objeto["idEvento"],
-	$objeto["nombre"]
+	$persona["idEvento"],
+	$persona["nombre"]
 	
 );
 $stmt->execute();

@@ -12,7 +12,6 @@ $query = 'SELECT * FROM personas WHERE idEvento =' . $idEventoGET;
 $result = mysqli_query($con, $query);
 
 $personas = array();
-
 while($row = mysqli_fetch_array($result)) 
 { 
 	$nombre=$row['nombre'];
@@ -23,7 +22,6 @@ while($row = mysqli_fetch_array($result))
 	$persona = array('nombre'=> $nombre,'idEvento'=> $idEvento, 'idPersona'=> $idPersona);
 	
     $personas[] = $persona;
-	
 }
 $close = mysqli_close($con) 
 or die("Ha sucedido un error inesperado en la desconexion de la base de datos");
