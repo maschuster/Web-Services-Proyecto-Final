@@ -36,8 +36,11 @@ if($json != false){
 	}
 	$_SESSION['userID']= $user["id"];
 	return json_encode($user);
-	}else {
-    $response = array("success" => "0");
-		return json_encode($response);
-   }
+	}
+	
+	else{
+	$response = array("success" => "0");
+	return json_encode($response);
+}
+mysqli_close($con);
 ?>
