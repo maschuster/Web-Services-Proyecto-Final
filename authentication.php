@@ -40,8 +40,8 @@ if($json != false){
 else
 {
 	$response = "0"
-	$json_string = json_encode($response,JSON_PRETTY_PRINT);
-	echo $json_string;
+	$jsonstring = json_encode($response,JSON_PRETTY_PRINT);
+	echo $jsonstring;
 }
 mysqli_close($con);
 ?>
