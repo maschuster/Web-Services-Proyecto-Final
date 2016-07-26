@@ -30,7 +30,7 @@ if($json != false){
 			$user["nombre"]
 		);
 		$stmt->execute();
-		$res = $stmt->ge t_result();
+		$res = $stmt->get_result();
 	}
 	$_SESSION['userID']= $user["idFacebook"];
 	
