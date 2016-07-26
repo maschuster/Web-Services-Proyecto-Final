@@ -39,7 +39,7 @@ if($json != false){
 }
 else
 {
-    $response = array("success" => "0");
+    $response = "0";
 	$jsonstring = json_encode($response,JSON_PRETTY_PRINT);
 	echo $jsonstring;
 }
