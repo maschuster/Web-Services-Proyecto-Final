@@ -15,9 +15,8 @@ if($json != false){
     $e = json_decode($json, true);
 		
     $id = $e["id"];
-    $email = $e["email"];
     $name = $e["name"];
-	$user = array('idFacebook'=> $id, 'email'=> $email, 'name'=> $name);
+	$user = array('idFacebook'=> $id, 'name'=> $name);
 	
 	$query = 'SELECT * FROM usuarios WHERE idFacebook =' . $id;
 	$result = mysqli_query($con, $query);
@@ -28,8 +27,7 @@ if($json != false){
 		$stmt->bind_param(
 			'sss',
 			$user["id"],
-			$user["name"],
-			$user["email"]
+			$user["name"]
 		);
 		$stmt->execute();
 		$res = $stmt->get_result();
