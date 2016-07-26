@@ -25,7 +25,6 @@ while($row = mysqli_fetch_array($result))
 	
     $eventos[] = $evento;
 	
-	// array_push
 }
 $close = mysqli_close($con) 
 or die("Ha sucedido un error inesperado en la desconexion de la base de datos");

@@ -22,7 +22,6 @@ while($row = mysqli_fetch_array($result))
 	$idUsuario=$row['idUsuario'];
 	$estado=$row['estado'];
 	
-	//va estado o no??
 	
 	
 	$objeto = array('idObjeto'=> $id, 'nombre'=> $nombre, 'precio'=> $precio,'idEvento'=> $idEvento, 'idUsuario'=> $idUsuario, 'estado'=> $estado );
