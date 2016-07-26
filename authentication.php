@@ -33,12 +33,17 @@ if($json != false){
 		$res = $stmt->get_result();
 	}
 	$_SESSION['userID']= $user["idFacebook"];
-	return json_encode($user);
-	}
-	else
-	{
-	$response = array("success" => "0");
-	return json_encode($response);
+	
+	header("Content-Type: application/json");
+	$json_string = json_encode($user,JSON_PRETTY_PRINT);
+	echo $json_string;
+}
+else
+{
+	header("Content-Type: application/json");
+	$response = "0"
+	$json_string = json_encode($response,JSON_PRETTY_PRINT);
+	echo $json_string;
 }
 mysqli_close($con);
 ?>
