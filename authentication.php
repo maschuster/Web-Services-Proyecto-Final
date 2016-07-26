@@ -30,7 +30,7 @@ if($json != false){
 			$user["nombre"]
 		);
 		$stmt->execute();
-		$res = $stmt->get_result();
+		$res = $stmt->ge t_result();
 	}
 	$_SESSION['userID']= $user["idFacebook"];
 	
@@ -39,7 +39,7 @@ if($json != false){
 }
 else
 {
-	$response = "0"
+    $response = array("success" => "1");
 	$jsonstring = json_encode($response,JSON_PRETTY_PRINT);
 	echo $jsonstring;
 }
