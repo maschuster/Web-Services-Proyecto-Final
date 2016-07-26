@@ -14,29 +14,29 @@ $json = @file_get_contents($url);
 if($json != false){
     $e = json_decode($json, true);
 		
+	$name = $e["name"];
     $id = $e["id"];
-    $name = $e["name"];
 	$user = array('idFacebook'=> $id, 'name'=> $name);
 	
 	$query = 'SELECT * FROM usuarios WHERE idFacebook =' . $id;
 	$result = mysqli_query($con, $query);
 	if (mysql_num_rows($result)==0) 
 	{
-		$query = "INSERT INTO usuarios (idFacebook,nombre,email) values (?, ?, ?)";
+		$query = "INSERT INTO usuarios (idFacebook,nombre) values (?, ?)";
 		$stmt = $con->prepare($query);
 		$stmt->bind_param(
-			'sss',
-			$user["id"],
+			'ss',
+			$user["idFacebook"],
 			$user["name"]
 		);
 		$stmt->execute();
 		$res = $stmt->get_result();
 	}
-	$_SESSION['userID']= $user["id"];
+	$_SESSION['userID']= $user["idFacebook"];
 	return json_encode($user);
 	}
-	
-	else{
+	else
+	{
 	$response = array("success" => "0");
 	return json_encode($response);
 }
