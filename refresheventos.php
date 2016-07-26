@@ -7,7 +7,13 @@ if (mysqli_connect_errno()) {
    echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
   
-$query = 'SELECT * FROM eventos WHERE idFacebook =' . $_SESSION['userID'];
+$query = 'SELECT eventos.*, participantes.idFacebook
+FROM eventos
+LEFT JOIN participantes
+ON eventos.idEvento = participantes.idEvento
+WHERE idFacebook =' . $_SESSION['userID'];
+
+
 $result = mysqli_query($con, $query);
 
 $eventos = array();
