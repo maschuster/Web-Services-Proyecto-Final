@@ -9,7 +9,7 @@ if (mysqli_connect_errno()) {
 
 $jsonToken = file_get_contents('php://input'); 
 $token = json_decode($jsonToken, true);
-foreach ($token as &$item) {
+foreach ($token as $item) {
 	$item = $item["accesToken"];
 	var_dump($token);
 	var_dump($item);
