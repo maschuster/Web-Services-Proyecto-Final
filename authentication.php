@@ -9,8 +9,8 @@ if (mysqli_connect_errno()) {
 
 $jsonToken = file_get_contents('php://input'); 
 $token = json_decode($jsonToken, true);
-//$url = "https://graph.facebook.com/me?access_token=". $token["accesToken"];
-$url = "https://graph.facebook.com/me?access_token=EAAXiLB7hBPwBAAZBTEJCXfP17iAEY2IfcBZA5GZCxZByPpNdUbwGb0BfQZCLoQxCoTEOKdF9TShoKig2WZAuzpvi4ZC0DxY2cP5dk0o9VPUU0y5n0rTXlZB79JY6J9CzFacST1RJx4clVk9jmS2og53AwTJbjYjZCv5wCAWJPsQOGCAGOYPHVAxOe9IPFz2AAklIZD";
+$url = "https://graph.facebook.com/me?access_token=". $token["accesToken"];
+//$url = "https://graph.facebook.com/me?access_token=EAAXiLB7hBPwBAAZBTEJCXfP17iAEY2IfcBZA5GZCxZByPpNdUbwGb0BfQZCLoQxCoTEOKdF9TShoKig2WZAuzpvi4ZC0DxY2cP5dk0o9VPUU0y5n0rTXlZB79JY6J9CzFacST1RJx4clVk9jmS2og53AwTJbjYjZCv5wCAWJPsQOGCAGOYPHVAxOe9IPFz2AAklIZD";
 $json = @file_get_contents($url);
 
 if($json != false){
@@ -21,7 +21,6 @@ if($json != false){
 	
 	$query = 'SELECT * FROM usuarios WHERE idFacebook =' . $user["idFacebook"];
 	$result = mysqli_query($con, $query);
-	//if (mysql_num_rows($result)==0)
 	if ($result == false) 		
 	{
 		$query = "INSERT INTO usuarios (idFacebook,nombre) values (?, ?)";
