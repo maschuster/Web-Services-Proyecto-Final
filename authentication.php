@@ -10,6 +10,9 @@ if (mysqli_connect_errno()) {
 $jsonToken = file_get_contents('php://input'); 
 $token = json_decode($jsonToken, true);
 $url = "https://graph.facebook.com/me?access_token=". $token["accesToken"];
+$mToken = $_POST['accesToken'];
+echo $mToken;
+echo var_dump($token);
 //$url = "https://graph.facebook.com/me?access_token=EAAXiLB7hBPwBAAZBTEJCXfP17iAEY2IfcBZA5GZCxZByPpNdUbwGb0BfQZCLoQxCoTEOKdF9TShoKig2WZAuzpvi4ZC0DxY2cP5dk0o9VPUU0y5n0rTXlZB79JY6J9CzFacST1RJx4clVk9jmS2og53AwTJbjYjZCv5wCAWJPsQOGCAGOYPHVAxOe9IPFz2AAklIZD";
 $json = @file_get_contents($url);
 
