@@ -9,7 +9,7 @@ if (mysqli_connect_errno()) {
 
 $jsonToken = file_get_contents('php://input'); 
 $token = json_decode($jsonToken, true);
-var_dump($token)
+var_dump($token);
 $url = "https://graph.facebook.com/me?access_token=". $token;
 $json = @file_get_contents($url);
 
