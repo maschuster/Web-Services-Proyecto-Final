@@ -9,10 +9,21 @@ if (mysqli_connect_errno()) {
 
 $jsonToken = file_get_contents('php://input'); 
 $token = json_decode($jsonToken, true);
-var_dump($token);
-$url = "https://graph.facebook.com/me?access_token=". $token [1];
+foreach ($token as &$item) {
+	$item = $item["accesToken"];
+	var_dump($token);
+	var_dump($item);
+	$url = "https://graph.facebook.com/me?access_token=". $item;
+}
 $json = @file_get_contents($url);
 
+/*array(1) {
+  ["accesToken"]=>
+  string(118) "{AccessToken token:ACCESS_TOKEN_REMOVED permissions:[public_profile, contact_email, user_friends, email, user_photos]}"
+}*/
+
+Notice: Undefined offset: 0 in D:\home\site\wwwroot\authentication.php on line 13
+"0"
 if($json != false){
     $e = json_decode($json, true);
 	$name = $e["name"];
