@@ -9,6 +9,7 @@ if (mysqli_connect_errno()) {
 
 $jsonToken = file_get_contents('php://input'); 
 $token = json_decode($jsonToken, true);
+var_dump($token)
 $url = "https://graph.facebook.com/me?access_token=". $token;
 $json = @file_get_contents($url);
 
@@ -34,8 +35,8 @@ if($json != false){
 	}
 	$_SESSION['userID']= $user["idFacebook"];
 	
-	$json_string = json_encode($user,JSON_PRETTY_PRINT);
-	echo $json_string;
+	$jsonstring = json_encode($user,JSON_PRETTY_PRINT);
+	echo $jsonstring;
 }
 else
 {
