@@ -21,9 +21,6 @@ $json = @file_get_contents($url);
   ["accesToken"]=>
   string(118) "{AccessToken token:ACCESS_TOKEN_REMOVED permissions:[public_profile, contact_email, user_friends, email, user_photos]}"
 }*/
-
-Notice: Undefined offset: 0 in D:\home\site\wwwroot\authentication.php on line 13
-"0"
 if($json != false){
     $e = json_decode($json, true);
 	$name = $e["name"];
