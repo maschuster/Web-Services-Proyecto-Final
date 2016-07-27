@@ -22,7 +22,7 @@ if($json != false){
 	$query = 'SELECT * FROM usuarios WHERE idFacebook =' . $user["idFacebook"];
 	$result = mysqli_query($con, $query);
 	//if (mysql_num_rows($result)==0)
-	if (mysql_num_rows($result)==0) 		
+	if ($result == false) 		
 	{
 		$query = "INSERT INTO usuarios (idFacebook,nombre) values (?, ?)";
 		$stmt = $con->prepare($query);
