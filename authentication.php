@@ -9,15 +9,16 @@ if (mysqli_connect_errno()) {
 
 $jsonToken = file_get_contents('php://input'); 
 $token = json_decode($jsonToken, true);
-foreach ($token as $item) {
+echo implode("",$token);
+$url = "https://graph.facebook.com/me?access_token=". $item;
+$json = @file_get_contents($url);
+
+/*foreach ($token as $item) {
 	$item = $item["accesToken"];
 	var_dump($token);
 	var_dump($item);
-	$url = "https://graph.facebook.com/me?access_token=". $item;
-}
-$json = @file_get_contents($url);
 
-/*array(1) {
+   array(1) {
   ["accesToken"]=>
   string(118) "{AccessToken token:ACCESS_TOKEN_REMOVED permissions:[public_profile, contact_email, user_friends, email, user_photos]}"
 }*/
