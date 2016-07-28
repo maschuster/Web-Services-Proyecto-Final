@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 require_once("conexion.php");
 $con=mysqli_connect($_GLOBALS["MYSQL_HOSTNAME"], $_GLOBALS["MYSQL_USERNAME"], $_GLOBALS["MYSQL_PASSWORD"], $_GLOBALS["MYSQL_DATABASE"]);
 if (mysqli_connect_errno()) {
@@ -38,4 +37,5 @@ or die("Ha sucedido un error inesperado en la desconexion de la base de datos");
 header("Content-Type: application/json");
 $json_string = json_encode($eventos,JSON_PRETTY_PRINT);
 echo $json_string;
+exit();
 ?>

@@ -44,5 +44,4 @@ else
 	echo $jsonstring;
 }
 mysqli_close($con);
-exit();
 ?>
