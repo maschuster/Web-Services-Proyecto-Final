@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 require_once("conexion.php");
 $con=mysqli_connect($_GLOBALS["MYSQL_HOSTNAME"], $_GLOBALS["MYSQL_USERNAME"], $_GLOBALS["MYSQL_PASSWORD"], $_GLOBALS["MYSQL_DATABASE"]);
 if (mysqli_connect_errno()) {
@@ -33,8 +32,8 @@ if($json != false){
 		$stmt->execute();
 		$res = $stmt->get_result();
 	}
-	$_SESSION['userID']= $user["idFacebook"];
 	
+	$_SESSION['userID']= $user["idFacebook"];
 	$jsonstring = json_encode($user,JSON_PRETTY_PRINT);
 	echo $jsonstring;
 }
@@ -45,4 +44,5 @@ else
 	echo $jsonstring;
 }
 mysqli_close($con);
+exit();
 ?>
