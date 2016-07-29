@@ -34,6 +34,7 @@ if($json != false){
 	}
 	
 	$_SESSION['userID']= $user["idFacebook"];
+	var_dump($_SESSION['userID']);
 	$jsonstring = json_encode($user,JSON_PRETTY_PRINT);
 	echo $jsonstring;
 }
