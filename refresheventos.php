@@ -1,11 +1,7 @@
 <?php
-session_start();
-require_once("conexion.php");
-$con=mysqli_connect($_GLOBALS["MYSQL_HOSTNAME"], $_GLOBALS["MYSQL_USERNAME"], $_GLOBALS["MYSQL_PASSWORD"], $_GLOBALS["MYSQL_DATABASE"]);
-if (mysqli_connect_errno()) {
-   echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
 
+require_once("conexion.php");
+$con = getConnection();
 $user = getCurrentUser();
 
 $query = 'SELECT eventos.*, participantes.idFacebook
