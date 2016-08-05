@@ -13,4 +13,15 @@ else {
 	$_GLOBALS["MYSQL_DATABASE"] = getenv("MYSQL_DATABASE");
 }
 
+function getCurrentUser() {
+	if (array_key_exists("HTTP_X_USER_ID", $_SERVER)) {
+		$id = $_SERVER["HTTP_X_USER_ID"];
+		return $id;
+	}
+	else {
+		http_response_code(500);
+		die("No estas autenticado");
+	}
+}
+
 ?>

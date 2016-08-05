@@ -5,13 +5,14 @@ $con=mysqli_connect($_GLOBALS["MYSQL_HOSTNAME"], $_GLOBALS["MYSQL_USERNAME"], $_
 if (mysqli_connect_errno()) {
    echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
-var_dump($_SESSION['userID']);
-  
+
+$userID = getCurrentUser();
+
 $query = 'SELECT eventos.*, participantes.idFacebook
 FROM eventos
 LEFT JOIN participantes
 ON eventos.idEvento = participantes.idEvento
-WHERE idFacebook =' . $_SESSION['userID'];
+WHERE idFacebook =' . $userID;
 
 
 $result = mysqli_query($con, $query);
