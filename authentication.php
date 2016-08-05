@@ -33,8 +33,10 @@ if ($result == false) {
 	$res = $stmt->get_result();
 }
 
-$res = json_encode($user,JSON_PRETTY_PRINT);
-echo $res;
+$_SESSION["USER_ID"] = $user["idFacebook"];
+
+//$res = json_encode($user,JSON_PRETTY_PRINT);
+//echo $res;
 
 mysqli_close($con);
 ?>

@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 if (getenv("MYSQL_HOSTNAME") === false) {
 	$_GLOBALS["MYSQL_HOSTNAME"] = "localhost";
 	$_GLOBALS["MYSQL_USERNAME"] = "root";
@@ -14,9 +16,24 @@ else {
 }
 
 function getCurrentUser() {
-	if (array_key_exists("HTTP_X_USER_ID", $_SERVER)) {
-		$id = $_SERVER["HTTP_X_USER_ID"];
-		return $id;
+
+	if (array_key_exists("USER_ID", $_SESSION)) {
+		$id = $_SESSION["USER_ID"];
+		
+		$con=mysqli_connect($_GLOBALS["MYSQL_HOSTNAME"], $_GLOBALS["MYSQL_USERNAME"], $_GLOBALS["MYSQL_PASSWORD"], $_GLOBALS["MYSQL_DATABASE"]);
+		if (mysqli_connect_errno()) {
+		die("Failed to connect to MySQL" . mysqli_connect_error());
+		}
+		$query = 'SELECT * FROM usuarios WHERE idFacebook = ' . $id;
+		$result = mysqli_query($con, $query);
+		while($row = mysqli_fetch_array($result)) 
+		{ 
+		$id=$row['idFacebook'];
+		$nombre=$row['nombre'];
+	
+		$user = array('idFacebook'=> $id, 'nombre'=> $nombre);
+		}
+		return $user;
 	}
 	else {
 		http_response_code(500);
