@@ -3,16 +3,16 @@
 session_start();
 
 if (getenv("MYSQL_HOSTNAME") === false) {
-	$_GLOBALS["MYSQL_HOSTNAME"] = "localhost";
-	$_GLOBALS["MYSQL_USERNAME"] = "root";
-	$_GLOBALS["MYSQL_PASSWORD"] = "";
-	$_GLOBALS["MYSQL_DATABASE"] = "eventospf2016";
+	$GLOBALS["MYSQL_HOSTNAME"] = "localhost";
+	$GLOBALS["MYSQL_USERNAME"] = "root";
+	$GLOBALS["MYSQL_PASSWORD"] = "";
+	$GLOBALS["MYSQL_DATABASE"] = "eventospf2016";
 }
 else {
-	$_GLOBALS["MYSQL_HOSTNAME"] = getenv("MYSQL_HOSTNAME");
-	$_GLOBALS["MYSQL_USERNAME"] = getenv("MYSQL_USERNAME");
-	$_GLOBALS["MYSQL_PASSWORD"] = getenv("MYSQL_PASSWORD");
-	$_GLOBALS["MYSQL_DATABASE"] = getenv("MYSQL_DATABASE");
+	$GLOBALS["MYSQL_HOSTNAME"] = getenv("MYSQL_HOSTNAME");
+	$GLOBALS["MYSQL_USERNAME"] = getenv("MYSQL_USERNAME");
+	$GLOBALS["MYSQL_PASSWORD"] = getenv("MYSQL_PASSWORD");
+	$GLOBALS["MYSQL_DATABASE"] = getenv("MYSQL_DATABASE");
 }
 
 function getCurrentUser() {
@@ -44,7 +44,7 @@ function getCurrentUser() {
 }
 
 function getConnection(){
-$con = mysqli_connect($_GLOBALS["MYSQL_HOSTNAME"], $_GLOBALS["MYSQL_USERNAME"], $_GLOBALS["MYSQL_PASSWORD"], $_GLOBALS["MYSQL_DATABASE"]);
+$con = mysqli_connect($GLOBALS["MYSQL_HOSTNAME"], $GLOBALS["MYSQL_USERNAME"], $GLOBALS["MYSQL_PASSWORD"], $GLOBALS["MYSQL_DATABASE"]);
 if (mysqli_connect_errno()) {
    echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
