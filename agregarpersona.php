@@ -1,12 +1,7 @@
 <?php
 
 require_once("conexion.php");
-
-$con=mysqli_connect($_GLOBALS["MYSQL_HOSTNAME"], $_GLOBALS["MYSQL_USERNAME"], $_GLOBALS["MYSQL_PASSWORD"], $_GLOBALS["MYSQL_DATABASE"]);
-
-if (mysqli_connect_errno()) {
-	die("Failed to connect to MySQL" . mysqli_connect_error());
-}
+$con = getConnection();
 
 $string = file_get_contents('php://input'); 
 $persona = json_decode($string, true);

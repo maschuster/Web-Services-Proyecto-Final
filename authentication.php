@@ -1,10 +1,7 @@
 <?php
 	
 require_once("conexion.php");
-$con=mysqli_connect($GLOBALS["MYSQL_HOSTNAME"], $GLOBALS["MYSQL_USERNAME"], $GLOBALS["MYSQL_PASSWORD"], $GLOBALS["MYSQL_DATABASE"]);
-if (mysqli_connect_errno()) {
-	die("Failed to connect to MySQL" . mysqli_connect_error());
-}
+$con = getConnection();
 
 $jsonToken = file_get_contents('php://input'); 
 $token = json_decode($jsonToken, true);
