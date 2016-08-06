@@ -35,8 +35,6 @@ function getCurrentUser() {
 		}
 		return $user;
 	}
-	
-	
 	else {
 		http_response_code(500);
 		die("No estas autenticado");

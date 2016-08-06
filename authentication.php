@@ -8,9 +8,8 @@ $token = json_decode($jsonToken, true);
 $url = "https://graph.facebook.com/me?access_token=". $token["accesToken"];
 $json = @file_get_contents($url);
 
-if($json == false)
-	die("Invalido");
-
+if($json != false){
+	
 $e = json_decode($json, true);
 $name = $e["name"];
 $id = $e["id"];
@@ -34,6 +33,10 @@ $_SESSION["USER_ID"] = $user["idFacebook"];
 
 $res = json_encode($user,JSON_PRETTY_PRINT);
 echo $res;
+
+}else{
+	die("Invalido");
+}
 
 mysqli_close($con);
 ?>
