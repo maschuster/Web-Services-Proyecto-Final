@@ -5,14 +5,14 @@ $con = getConnection();
 
 $string = file_get_contents('php://input'); 
 $objeto = json_decode($string, true);
-$query = "INSERT INTO objetos (nombre,precio,idEvento, idUsuario, estado) values (?, ?, ?, ?, ?)";
+$query = "INSERT INTO objetos (nombre,precio,idEvento, idParticipante, estado) values (?, ?, ?, ?, ?)";
 $stmt = $con->prepare($query);
 $stmt->bind_param(
 	'sssss',
 	$objeto["nombre"],
 	$objeto["precio"],
 	$objeto["idEvento"],
-	$objeto["idUsuario"],
+	$objeto["idParticipante"],
 	$objeto["estado"]
 	
 );

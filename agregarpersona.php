@@ -4,13 +4,14 @@ require_once("conexion.php");
 $con = getConnection();
 
 $string = file_get_contents('php://input'); 
-$persona = json_decode($string, true);
-$query = "INSERT INTO personas (idEvento, nombre) values (?, ?)";
+$participante = json_decode($string, true);
+$query = "INSERT INTO participantes (idEvento, idFacebook, nombre) values (?, ?, ?)";
 $stmt = $con->prepare($query);
 $stmt->bind_param(
-	'ss',
-	$persona["idEvento"],
-	$persona["nombre"]
+	'sss',
+	$participante["idEvento"],
+	$participante["idFacebook"],
+	$participante["nombre"]
 );
 $stmt->execute();
 $res = $stmt->get_result();

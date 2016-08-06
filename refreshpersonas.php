@@ -4,27 +4,28 @@ require_once("conexion.php");
 $con = getConnection();
 
 $idEventoGET = $_GET['idEvento'];
-$query = 'SELECT * FROM personas WHERE idEvento =' . $idEventoGET;
+$query = 'SELECT * FROM participantes WHERE idEvento =' . $idEventoGET;
 $result = mysqli_query($con, $query);
 
-$personas = array();
+$participantes = array();
 
 while($row = mysqli_fetch_array($result)) 
 { 
-	$nombre=$row['nombre'];
+	$idParticipante=$row['idParticipante'];
 	$idEvento=$row['idEvento'];
-	$idPersona=$row['idPersona'];
+	$idFacebook=$row['idFacebook'];
+	$nombre=$row['nombre'];
 	
 	
-	$persona = array('nombre'=> $nombre,'idEvento'=> $idEvento, 'idPersona'=> $idPersona);
+	$participante = array('nombre'=> $nombre,'idEvento'=> $idEvento, 'idParticipante'=> $idParticipante, 'idFacebook'=> $idFacebook);
 	
-    $personas[] = $persona;
+    $participantes[] = $particiante;
 	
 }
 $close = mysqli_close($con) 
 or die("Ha sucedido un error inesperado en la desconexion de la base de datos");
 
 header("Content-Type: application/json");
-$json_string = json_encode($personas,JSON_PRETTY_PRINT);
+$json_string = json_encode($participantes,JSON_PRETTY_PRINT);
 echo $json_string;
 ?>

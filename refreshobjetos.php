@@ -15,12 +15,12 @@ while($row = mysqli_fetch_array($result))
 	$nombre=$row['nombre'];
 	$precio=$row['precio'];
 	$idEvento=$row['idEvento'];
-	$idUsuario=$row['idUsuario'];
+	$idParticipante=$row['idParticipante'];
 	$estado=$row['estado'];
 	
 	
 	
-	$objeto = array('idObjeto'=> $id, 'nombre'=> $nombre, 'precio'=> $precio,'idEvento'=> $idEvento, 'idUsuario'=> $idUsuario, 'estado'=> $estado );
+	$objeto = array('idObjeto'=> $id, 'nombre'=> $nombre, 'precio'=> $precio,'idEvento'=> $idEvento, 'idParticipante'=> $idParticipante, 'estado'=> $estado );
 	
     $objetos[] = $objeto;
 	
