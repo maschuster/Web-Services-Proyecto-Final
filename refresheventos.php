@@ -3,7 +3,6 @@
 require_once("conexion.php");
 $con = getConnection();
 $user = getCurrentUser();
-var_dump($_SERVER["HTTP_X_USER_ID"]);
 
 $query = 'SELECT eventos.*, participantes.idFacebook
 FROM eventos

@@ -14,7 +14,6 @@ else {
 }
 
 function getCurrentUser() {
-
 	if (array_key_exists("HTTP_X_USER_ID", $_SERVER)) {
 		$id = $_SERVER["HTTP_X_USER_ID"];
 		
