@@ -19,7 +19,7 @@ while($row = mysqli_fetch_array($result))
 	
 	$participante = array('nombre'=> $nombre,'idEvento'=> $idEvento, 'idParticipante'=> $idParticipante, 'idFacebook'=> $idFacebook);
 	
-    $participantes[] = $particiante;
+    $participantes[] = $participante;
 	
 }
 $close = mysqli_close($con) 
