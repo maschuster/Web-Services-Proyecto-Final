@@ -15,7 +15,7 @@ else {
 
 function getCurrentUser() {
 
-	if (isset($_SERVER["HTTP_X_USER_ID"]) {
+	if (array_key_exists("HTTP_X_USER_ID", $_SERVER)) {
 		$id = $_SERVER["HTTP_X_USER_ID"];
 		
 		$con=mysqli_connect($GLOBALS["MYSQL_HOSTNAME"], $GLOBALS["MYSQL_USERNAME"], $GLOBALS["MYSQL_PASSWORD"], $GLOBALS["MYSQL_DATABASE"]);
