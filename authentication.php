@@ -29,8 +29,6 @@ if ($result == false) {
 	$res = $stmt->get_result();
 }
 
-$_SESSION["USER_ID"] = $user["idFacebook"];
-
 $res = json_encode($user,JSON_PRETTY_PRINT);
 echo $res;
 
