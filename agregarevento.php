@@ -34,7 +34,6 @@ if($res >0){
 	http_response_code(500);
 	die("Error agregando Participante");
 }
-
 }else{
 	http_response_code(500);
 	die("Error agregando Evento");
