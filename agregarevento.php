@@ -19,9 +19,8 @@ $stmt->bind_param(
 );
 $stmt->execute();
 $res = $stmt->get_result();
-
-
-$query = "INSERT INTO participantes (idFacebook,nombre,idEvento) values (?, ?, ?)";
+if($res >0){
+	$query = "INSERT INTO participantes (idFacebook,nombre,idEvento) values (?, ?, ?)";
 $stmt = $con->prepare($query);
 $stmt->bind_param(
 	'sss',
@@ -31,7 +30,14 @@ $stmt->bind_param(
 );
 $stmt->execute();
 $res = $stmt->get_result();
+if($res >0){
+	http_response_code(500);
+	die("Error agregando Participante");
+}
 
+}else{
+	http_response_code(500);
+	die("Error agregando Evento");
+}
 mysqli_close($con);
-
 ?>
