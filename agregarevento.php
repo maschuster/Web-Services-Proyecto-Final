@@ -5,15 +5,15 @@ $con = getConnection();
 $user = getCurrentUser();
 $string = file_get_contents('php://input'); 
 $evento = json_decode($string, true);
-$query = "INSERT INTO eventos (nombre,fecha,lugar,descripcion,idAdmin,foto) values (?, ?, ?, ?, ?, ?)";
+$query = "INSERT INTO eventos (idAdmin,nombre,fecha,lugar,descripcion,foto) values (?, ?, ?, ?, ?, ?)";
 $stmt = $con->prepare($query);
 $stmt->bind_param(
 	'ssssss',
+	$evento["idAdmin"],
 	$evento["nombre"],
 	$evento["fecha"],
 	$evento["lugar"],
 	$evento["descripcion"],
-	$evento["idAdmin"],
 	$evento["foto"]
 	
 );
