@@ -30,9 +30,9 @@ $stmt->bind_param(
 	$user["nombre"],
 	$res
 );
-$res = $stmt->execute();
-$stmt->get_result();
-if($res >0){
+$stmt->execute();
+$res = $stmt->get_result();
+if($res == 0){
 	http_response_code(500);
 	die("Error agregando Participante");
 }
