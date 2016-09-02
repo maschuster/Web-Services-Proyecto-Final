@@ -17,9 +17,9 @@ $stmt->bind_param(
 	$evento["foto"]	
 );
 
-var_dump($evento);
 $stmt->execute();
 $res = $stmt->get_result();
+var_dump($res);
 if($res >0){
 	$query = "INSERT INTO participantes (idFacebook,nombre,idEvento) values (?, ?, ?)";
 $stmt = $con->prepare($query);
