@@ -14,9 +14,10 @@ $stmt->bind_param(
 	$evento["fecha"],
 	$evento["lugar"],
 	$evento["descripcion"],
-	$evento["foto"]
-	
+	$evento["foto"]	
 );
+
+var_dump($evento);
 $stmt->execute();
 $res = $stmt->get_result();
 if($res >0){
