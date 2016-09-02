@@ -31,8 +31,9 @@ $stmt->bind_param(
 	$res
 );
 $stmt->execute();
-$res = $stmt->get_result();
-if($res == 0){
+$stmt->get_result();
+$resultado = mysqli_insert_id($con);
+if($resultado < 1){
 	http_response_code(500);
 	die("Error agregando Participante");
 }
