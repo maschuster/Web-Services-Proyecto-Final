@@ -17,10 +17,10 @@ $stmt->bind_param(
 	$evento["foto"]	
 );
 
-$stmt->execute();
-$res = $stmt->insert_id();
+$res = $stmt->execute();
+$stmt->get_result();
 var_dump($res);
-if($res>0){
+if($res>1){
 	$query = "INSERT INTO participantes (idFacebook,nombre,idEvento) values (?, ?, ?)";
 $stmt = $con->prepare($query);
 $stmt->bind_param(
