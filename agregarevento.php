@@ -17,8 +17,8 @@ $stmt->bind_param(
 	$evento["foto"]	
 );
 
-$stmt->execute();
-$res = $stmt->get_result();
+$res = $stmt->execute();
+$stmt->get_result();
 var_dump($res);
 if($res >0){
 	$query = "INSERT INTO participantes (idFacebook,nombre,idEvento) values (?, ?, ?)";
@@ -29,8 +29,8 @@ $stmt->bind_param(
 	$user["nombre"],
 	$res
 );
-$stmt->execute();
-$res = $stmt->get_result();
+$res = $stmt->execute();
+$stmt->get_result();
 if($res >0){
 	http_response_code(500);
 	die("Error agregando Participante");
