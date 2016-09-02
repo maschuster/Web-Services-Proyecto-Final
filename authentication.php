@@ -17,7 +17,6 @@ if($json != false){
 
 	$query = 'SELECT * FROM usuarios WHERE idFacebook = ' . $user["idFacebook"];
 	$resultado = mysqli_insert_id($con);
-	var_dump($resultado);
 	if ($resultado > 1) {
 			die("Ya creado");
 	}else{
