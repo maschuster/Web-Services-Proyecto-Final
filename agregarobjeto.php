@@ -17,7 +17,12 @@ $stmt->bind_param(
 	
 );
 $stmt->execute();
-$res = $stmt->get_result();
+$stmt->get_result();
+$resultado = mysqli_insert_id($con);
+if($resultado < 1){
+	http_response_code(500);
+	die("Error agregando Objeto");
+}
 
 mysqli_close($con);
 

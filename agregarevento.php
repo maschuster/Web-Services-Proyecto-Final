@@ -20,7 +20,6 @@ $stmt->bind_param(
 $stmt->execute();
 $stmt->get_result();
 $res = mysqli_insert_id($con);
-var_dump($res);
 if($res>1){
 	$query = "INSERT INTO participantes (idFacebook,nombre,idEvento) values (?, ?, ?)";
 $stmt = $con->prepare($query);
