@@ -11,7 +11,7 @@ if($objeto["tipomod"] == 0){
 	$stmt->bind_param(
 		'ss',
 		$objeto["estado"],
-		$objeto["idObjeto"],
+		$objeto["idObjeto"]
 	);
 }else{
 	$query = "UPDATE objetos SET idParticipante = ? WHERE idObjeto = ?";
@@ -19,7 +19,7 @@ if($objeto["tipomod"] == 0){
 	$stmt->bind_param(
 		'ss',
 		$objeto["idParticipante"],
-		$objeto["idObjeto"],
+		$objeto["idObjeto"]
 }
 $stmt->execute();
 $res = $stmt->get_result();
