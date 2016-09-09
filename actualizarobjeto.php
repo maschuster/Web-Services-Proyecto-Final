@@ -20,6 +20,7 @@ if($objeto["tipomod"] == 0){
 		'ss',
 		$objeto["idParticipante"],
 		$objeto["idObjeto"]
+	);
 }
 $stmt->execute();
 $res = $stmt->get_result();
