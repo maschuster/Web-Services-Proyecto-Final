@@ -5,7 +5,7 @@ $con = getConnection();
 
 $string = file_get_contents('php://input'); 
 $votacion = json_decode($string, true);
-$query = "INSERT INTO preguntas (pregunta,si,no, idEvento) values (?, ?, ?, ?)";
+$query = "INSERT INTO preguntas (pregunta, si, no, idEvento) values (?, ?, ?, ?)";
 $stmt = $con->prepare($query);
 $stmt->bind_param(
 	'ssss',
