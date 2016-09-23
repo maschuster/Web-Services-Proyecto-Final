@@ -25,10 +25,10 @@ function getCurrentUser() {
 		$result = mysqli_query($con, $query);
 		if($row = mysqli_fetch_array($result)) 
 		{ 
-		$idfb=$row['idFacebook'];
-		$nombre=$row['nombre'];
-	
-		$user = array('idFacebook'=> $idfb, 'nombre'=> $nombre);
+			$idfb=$row['idFacebook'];
+			$nombre=$row['nombre'];
+		
+			$user = array('idFacebook'=> $idfb, 'nombre'=> $nombre);
 		}
 		return $user;
 	}
@@ -39,10 +39,11 @@ function getCurrentUser() {
 }
 
 function getConnection(){
-$con = mysqli_connect($GLOBALS["MYSQL_HOSTNAME"], $GLOBALS["MYSQL_USERNAME"], $GLOBALS["MYSQL_PASSWORD"], $GLOBALS["MYSQL_DATABASE"]);
-if (mysqli_connect_errno()) {
-   echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	$con = mysqli_connect($GLOBALS["MYSQL_HOSTNAME"], $GLOBALS["MYSQL_USERNAME"], $GLOBALS["MYSQL_PASSWORD"], $GLOBALS["MYSQL_DATABASE"]);
+	if (mysqli_connect_errno()) {
+	   echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
+	mysqli_set_charset($con, "utf8");
 	return $con;
 }
 
