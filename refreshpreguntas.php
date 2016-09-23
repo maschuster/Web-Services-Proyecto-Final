@@ -5,6 +5,8 @@ $con = getConnection();
  
 $idEventoGET = $_GET['idEvento'];
 $id = $_SERVER["HTTP_X_PARTICIPANTE_ID"];
+echo $id;
+echo $idEvento;
 $query = 'SELECT * FROM preguntas
 INNER JOIN respuestas
 ON preguntas.idPregunta = respuestas.idPregunta WHERE idEvento =' . $idEventoGET . 'AND idParticipante = ' . $id;
@@ -22,6 +24,8 @@ while($row = mysqli_fetch_array($result))
 	$voto=$row['voto'];
 	
 	$votacion = array('idPregunta'=> $id,  'pregunta'=> $pregunta, 'afirmativos'=> $afirmativos,'idEvento'=> $idEvento, 'negativos'=> $negativos, 'voto'=> $voto);
+	echo $votacion;
+	echo $result;
 	
     $votaciones[] = $votacion;
 	
