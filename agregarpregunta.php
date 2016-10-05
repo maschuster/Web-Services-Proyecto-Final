@@ -10,8 +10,8 @@ $stmt = $con->prepare($query);
 $stmt->bind_param(
 	'ssss',
 	$votacion["pregunta"],
-	0,
-	0,
+	"0",
+	"0",
 	$votacion["idEvento"]
 	
 );
