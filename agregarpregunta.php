@@ -5,13 +5,14 @@ $con = getConnection();
 
 $string = file_get_contents('php://input'); 
 $votacion = json_decode($string, true);
-$query = "INSERT INTO preguntas (pregunta, si, no, idEvento) values (?, ?, ?, ?)";
+$votos = 0;
+$query = "INSERT INTO preguntas (pregunta, afirmativos, negativos, idEvento) values (?, ?, ?, ?)";
 $stmt = $con->prepare($query);
 $stmt->bind_param(
 	'ssss',
 	$votacion["pregunta"],
-	"0",
-	"0",
+	$votos,
+	$votos,
 	$votacion["idEvento"]
 	
 );
