@@ -1,5 +1,4 @@
 <?php
-
 require_once("conexion.php");
 $con = getConnection();
 
@@ -9,16 +8,24 @@ if($objeto["tipomod"] == 0){
 	$query = "UPDATE objetos SET estado = ? WHERE idObjeto = ?";
 	$stmt = $con->prepare($query);
 	$stmt->bind_param(
-		'ss',
+		'ss', 
 		$objeto["estado"],
 		$objeto["idObjeto"]
 	);
-}else{
+}if($objeto["tipomod"] == 1){
 	$query = "UPDATE objetos SET idParticipante = ? WHERE idObjeto = ?";
 	$stmt = $con->prepare($query);
 	$stmt->bind_param(
 		'ss',
 		$objeto["idParticipante"],
+		$objeto["idObjeto"]
+	);
+}if($objeto["tipomod"] == 2){
+	$query = "UPDATE objetos SET precio = ? WHERE idObjeto = ?";
+	$stmt = $con->prepare($query);
+	$stmt->bind_param(
+		'ss',
+		$objeto["precio"],
 		$objeto["idObjeto"]
 	);
 }
