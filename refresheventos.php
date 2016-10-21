@@ -22,8 +22,9 @@ while($row = mysqli_fetch_array($result))
 	$fecha=$row['fecha'];
 	$descripcion=$row['descripcion'];
 	$lugar=$row['lugar'];
+	$foto=$row['foto'];
 	
-	$evento = array('idEvento'=> $id, 'nombre'=> $nombre, 'fecha'=> $fecha, 'lugar'=> $lugar,'descripcion'=> $descripcion);
+	$evento = array('idEvento'=> $id, 'nombre'=> $nombre, 'fecha'=> $fecha, 'lugar'=> $lugar,'descripcion'=> $descripcion, 'foto'=> $foto);
 	
     $eventos[] = $evento;
 	

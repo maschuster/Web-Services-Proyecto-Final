@@ -7,7 +7,7 @@ $idEventoGET = $_GET['idEvento'];
 $id = $_SERVER["HTTP_X_PARTICIPANTE_ID"];
 $query = "SELECT preguntas.idPregunta, preguntas.idEvento, preguntas.pregunta, preguntas.afirmativos, preguntas.negativos, respuestas.voto FROM preguntas
 LEFT JOIN respuestas
-ON preguntas.idPregunta = respuestas.idPregunta WHERE preguntas.idEvento = $idEventoGET AND (respuestas.idParticipante = $id or respuestas.idParticipante IS NULL);";
+ON preguntas.idPregunta = respuestas.idPregunta WHERE preguntas.idEvento = $idEventoGET AND respuestas.idParticipante = $id;";
 
 $result = mysqli_query($con, $query);
 
