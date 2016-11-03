@@ -37,16 +37,12 @@ if($res>1)
 	if($resultado < 1){
 		http_response_code(500);
 		die("Error agregando Participante");
-		echo = "Mensaje" =>"Error";
-	}else{
-        echo = "Mensaje" =>"Correcto";
-	}	
+	}
 }
 else
 {
 	http_response_code(500);
 	die("Error agregando Evento");
-	echo = "Mensaje" =>"Error";
 }
 mysqli_close($con);
 ?>
