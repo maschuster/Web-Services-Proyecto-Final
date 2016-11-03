@@ -19,11 +19,13 @@ while($row = mysqli_fetch_array($result))
 { 
 	$id=$row['idEvento'];
 	$nombre=$row['nombre'];
-	$fecha=$row['fecha'];
 	$descripcion=$row['descripcion'];
 	$lugar=$row['lugar'];
 	$foto=$row['foto'];
-	$foto = date_format($foto, 'j M   g:ia');
+	$fecha=$row['fecha'];
+	
+	$fecha = date_create($fecha);
+	$fecha = date_format($fecha, 'j M   g:ia');
 	
 	$evento = array('idEvento'=> $id, 'nombre'=> $nombre, 'fecha'=> $fecha, 'lugar'=> $lugar,'descripcion'=> $descripcion, 'foto'=> $foto);
 	
