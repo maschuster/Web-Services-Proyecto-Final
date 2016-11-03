@@ -1,6 +1,6 @@
 <?php
-
 require_once("conexion.php");
+setlocale(LC_ALL,"es_ES");
 $con = getConnection();
 $user = getCurrentUser();
 
