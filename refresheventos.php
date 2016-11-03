@@ -25,7 +25,7 @@ while($row = mysqli_fetch_array($result))
 	$fecha=$row['fecha'];
 	
 	$fecha = date_create($fecha);
-	$fecha = date_format($fecha, 'j M   g:ia');
+	$fecha = date_format($fecha, 'j F   g:i A');
 	
 	$evento = array('idEvento'=> $id, 'nombre'=> $nombre, 'fecha'=> $fecha, 'lugar'=> $lugar,'descripcion'=> $descripcion, 'foto'=> $foto);
 	
