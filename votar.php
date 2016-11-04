@@ -27,7 +27,27 @@ $stmt->bind_param(
 	's',
 	$respuesta["idPregunta"]
 );
-$stmt->execute();
-$res = $stmt->get_result();
+
+$res = $stmt->execute();
+$stmt->get_result();
+
+
+
+if($res){
+	json(array("Mensaje" => "OK"));
+}else{
+	json(array("Error" => "NO"));
+}
+
+
+
+function json($param) {
+	header("Content-Type: application/json; charset=UTF-8");
+	$json = json_encode($param, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+	echo($json);
+	echo("\n");
+}
+
+
 mysqli_close($con);
 ?>
