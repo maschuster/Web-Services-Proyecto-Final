@@ -37,12 +37,25 @@ if($res>1)
 	if($resultado < 1){
 		http_response_code(500);
 		die("Error agregando Participante");
+		json(array("Error" => "NO"));
+	}else{
+		json(array("Mensaje" => "OK"));
 	}
 }
 else
 {
 	http_response_code(500);
 	die("Error agregando Evento");
+	json(array("Error" => "NO"));
 }
+
+
+function json($param) {
+	header("Content-Type: application/json; charset=UTF-8");
+	$json = json_encode($param, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+	echo($json);
+	echo("\n");
+}
+
 mysqli_close($con);
 ?>
