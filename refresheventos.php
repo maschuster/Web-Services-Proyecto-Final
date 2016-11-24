@@ -4,6 +4,7 @@ setlocale(LC_ALL,"es_ES");
 $con = getConnection();
 $user = getCurrentUser();
 
+
 $query = 'SELECT eventos.*, participantes.idFacebook
 FROM eventos
 LEFT JOIN participantes

@@ -13,6 +13,16 @@ else {
 	$GLOBALS["MYSQL_DATABASE"] = getenv("MYSQL_DATABASE");
 }
 
+if (array_key_exists("HTTP_HOST", $_ENV)) {
+	$GLOBALS["URL_BASE"] = "http://" . $_ENV["HTTP_HOST"];
+}
+if (getenv("HTTP_HOST") === false) {
+	$GLOBALS["URL_BASE"] = "http://eventospf2016.azurewebsites.net/";
+}
+else {
+	$GLOBALS["URL_BASE"] = "http://" . getenv("HTTP_HOST");
+}
+
 function getCurrentUser() {
 	if (array_key_exists("HTTP_X_USER_ID", $_SERVER)) {
 		$id = $_SERVER["HTTP_X_USER_ID"];
