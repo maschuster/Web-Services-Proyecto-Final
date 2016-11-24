@@ -17,11 +17,12 @@ $eventos = array();
 
 while($row = mysqli_fetch_array($result)) 
 { 
+	
 	$id=$row['idEvento'];
 	$nombre=$row['nombre'];
 	$descripcion=$row['descripcion'];
 	$lugar=$row['lugar'];
-	$foto=$row['foto'];
+	$foto = generarURL("/foto.php?id=".$row['idEvento']."&tabla=eventos");
 	$fecha=$row['fecha'];
 	
 	$fecha = date_create($fecha);
@@ -39,4 +40,11 @@ header("Content-Type: application/json");
 $json_string = json_encode($eventos,JSON_PRETTY_PRINT);
 echo $json_string;
 exit();
+
+
+
+function generarURL($relativo) {
+	return $GLOBALS["URL_BASE"] . $relativo;
+}
+
 ?>

@@ -6,6 +6,8 @@ $user = getCurrentUser();
 $string = file_get_contents('php://input'); 
 $evento = json_decode($string, true);
 $query = "INSERT INTO eventos (idAdmin,nombre,fecha,lugar,descripcion,foto) values (?, ?, ?, ?, ?, ?)";
+
+$foto = base64_decode($evento["foto"]);
 $stmt = $con->prepare($query);
 $stmt->bind_param(
 	'ssssss',
@@ -14,7 +16,7 @@ $stmt->bind_param(
 	$evento["fecha"],
 	$evento["lugar"],
 	$evento["descripcion"],
-	$evento["foto"]	
+	$foto
 );
 
 $stmt->execute();
