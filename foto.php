@@ -10,7 +10,6 @@ if(mysqli_num_rows($query_exec)){
 	$row=mysqli_fetch_assoc($query_exec);
 	$foto = $row["foto"];
 }
-header("Content-Type: image/jpeg");
-var_dump($foto);
+header("Content-Type: image/png");
 echo $foto;
 ?>
