@@ -11,5 +11,6 @@ if(mysqli_num_rows($query_exec)){
 	$foto = $row["foto"];
 }
 header("Content-Type: image/jpeg");
+var_dump($foto);
 echo $foto;
 ?>
