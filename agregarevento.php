@@ -6,7 +6,7 @@ $user = getCurrentUser();
 $string = file_get_contents('php://input'); 
 $evento = json_decode($string, true);
 $query = "INSERT INTO eventos (idAdmin,nombre,fecha,lugar,descripcion,foto) values (?, ?, ?, ?, ?, ?)";
-
+echo $evento["foto"];
 $foto = base64_decode($evento["foto"]);
 $stmt = $con->prepare($query);
 $stmt->bind_param(
@@ -18,7 +18,6 @@ $stmt->bind_param(
 	$evento["descripcion"],
 	$foto
 );
-echo $foto;
 $stmt->execute();
 $stmt->get_result();
 $res = mysqli_insert_id($con);
