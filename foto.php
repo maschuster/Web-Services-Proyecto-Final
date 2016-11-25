@@ -10,5 +10,6 @@ if(mysqli_num_rows($query_exec)){
 	$foto = $row["foto"];
 }
 header("Content-Type: image/jpeg");
-echo $foto;
+echo '<img src="data:image/jpeg;base64,'.base64_encode($foto).'"/>';
+//echo $foto;
 ?>
