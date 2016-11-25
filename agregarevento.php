@@ -18,7 +18,7 @@ $stmt->bind_param(
 	$evento["descripcion"],
 	$foto
 );
-
+echo $foto;
 $stmt->execute();
 $stmt->get_result();
 $res = mysqli_insert_id($con);
